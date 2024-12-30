@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calc2.css">
+    <script src="calc2.js"></script>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        <div class="input-section">
+            <input type="number" id="num1" placeholder="First number">
+            <input type="number" id="num2" placeholder="Second number">
+        </div>
+        <div class="buttons">
+            <button  onclick="add()">+</button>
+            <button  onclick="subtract()">-</button>
+            <button  onclick="multiply()">X</button>
+            <button  onclick="divide()">÷</button>
+            
+        </div>
+        <div class="result">
+            <h2>Result: <span id="result">0</span></h2>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+CSS:
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f8fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calculator {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(24, 69, 92);
+    border-radius: 10px;
+    box-shadow: white;
+    width: 300px;
+}
+.input-section input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+ button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b8c6d6;
+    color: white;
+    cursor: pointer;
+}
+
+
+ h2 {
+    margin-top: 20px;
+    color: #eff0f5;
+}
+
+button:hover{
+    background-color: rgb(54, 57, 66);
+    color: rgb(238, 223, 238);
+}
+
+js:
+
+function add() {
+   
+    let num1 = parseFloat(document.getElementById('num1').value);
+    let num2 = parseFloat(document.getElementById('num2').value);
+    
+    
+    if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('result').textContent = 'Please enter valid numbers';
+    } else {
+        let result = num1 + num2;
+        
+        document.getElementById('result').textContent = result;
+    }
+}
+
+
+function subtract() {
+    let num1 = parseFloat(document.getElementById('num1').value);
+    let num2 = parseFloat(document.getElementById('num2').value);
+    
+    
+    if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('result').textContent = 'Please enter valid numbers';
+    } else {
+        
+        let result = num1 - num2;
+        
+        document.getElementById('result').textContent = result;
+    }
+}
+
+
+function multiply() {
+    
+    let num1 = parseFloat(document.getElementById('num1').value);
+    let num2 = parseFloat(document.getElementById('num2').value);
+    
+    
+    if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('result').textContent = 'Please enter valid numbers';
+    } else {
+        
+        let result = num1 * num2;
+        
+        document.getElementById('result').textContent = result;
+    }
+}
+
+
+function divide() {
+    
+    let num1 = parseFloat(document.getElementById('num1').value);
+    let num2 = parseFloat(document.getElementById('num2').value);
+    
+    
+    if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('result').textContent = 'Please enter valid numbers';
+    } else if (num2 === 0) {
+        document.getElementById('result').textContent = 'Cannot divide by zero';
+    } else {
+        
+        let result = num1 / num2;
+        
+        document.getElementById('result').textContent = result;
+    }
+}
